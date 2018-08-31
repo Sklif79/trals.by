@@ -12,6 +12,21 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+<div class="header__top-nav mob-hidden">
+    <div class="container">
+        <div class="header__top-nav-left">
+            <div class="header__top-nav-address">
+                PБ, 220113, Минск, Логойский тракт, д.15, к.4
+            </div>
+            <a href="#fb-map" class="address__map js-open-modal" title=""><span>Посмотреть на карте</span></a>
+        </div>
+        <div class="header__top-nav-right">
+            <a href="#" class="lnk-shipping header__top-nav-lnk"><span>Доставка</span></a>
+            <a href="#" class="lnk-warranty header__top-nav-lnk"><span>Гарантия</span></a>
+            <a href="#" class="lnk-payments header__top-nav-lnk"><span>Способы оплаты</span></a>
+        </div>
+    </div>
+</div>
 <div class="header__top">
     <div class="container">
         <ul class="header__contact flex">

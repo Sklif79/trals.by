@@ -1009,6 +1009,33 @@
         flex-basis: 270px;
     }
 
+    .header__top-nav a::before {
+        display: none;
+    }
+
+    .header__top-nav .container {
+        font-size: 11px;
+        padding-top: 11px;
+        padding-bottom: 14px;
+    }
+
+    .header__top-nav-lnk {
+        margin-right: 19px;
+    }
+
+    .header__basket {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .header__basket-ico {
+        margin-right: 10px;
+    }
+
+    .header__address {
+        margin-top: -2px;
+    }
+
     /* END style */
 }
 
@@ -1159,6 +1186,7 @@
     /* Шапка */
     .mobile-address-trigger {
         display: block;
+        margin-right: 10px;
     }
 
     .header__top {
@@ -1180,10 +1208,6 @@
     }
 
     .mobile-trigger span {
-        display: none;
-    }
-
-    .header__address {
         display: none;
     }
 
@@ -1847,6 +1871,35 @@
 
     .catalog-list .products-item:hover {
         height: 404px;
+    }
+
+    .header__basket {
+        padding: 0;
+        border: none;
+    }
+
+    .header__address {
+        display: flex;
+        align-items: center;
+    }
+
+    .header__basket-ico {
+        font-size: 24px;
+    }
+
+    .header__basket {
+        position: relative;
+    }
+    
+    .header__basket-value {
+        position: absolute;
+        right: 4px;
+        top: -3px;
+        font-size: 10px;
+        color: #fff;
+        background: #D72922;
+        border-radius: 3px;
+        padding: 0 3px;
     }
 
     /* скрывает элементы в мобильной версии */

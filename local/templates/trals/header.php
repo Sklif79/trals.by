@@ -317,6 +317,10 @@ CJSCore::Init(array('ajax'));
                         false
                     ); ?>
                     <div class="header__address address">
+                        <div class="mobile-address-trigger">
+                            <i></i>
+                        </div>
+
                         <? $APPLICATION->IncludeComponent(
                             "bitrix:main.include",
                             "",
@@ -328,9 +332,6 @@ CJSCore::Init(array('ajax'));
                             ),
                             false
                         ); ?>
-                    </div>
-                    <div class="mobile-address-trigger">
-                        <i></i>
                     </div>
                 </div>
             </div>

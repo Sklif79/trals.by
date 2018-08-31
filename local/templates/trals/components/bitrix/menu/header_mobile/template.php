@@ -69,6 +69,11 @@
                                     <?= str_repeat("</ul></li>", ($previousLevel - 1)); ?>
                                 <? endif ?>
                             </ul>
+                        <ul class="mobile__submenu">
+                            <li><a href="#" class="lnk-shipping header__top-nav-lnk"><span>Доставка</span></a></li>
+                            <li><a href="#" class="lnk-warranty header__top-nav-lnk"><span>Гарантия</span></a></li>
+                            <li><a href="#" class="lnk-payments header__top-nav-lnk"><span>Способы оплаты</span></a></li>
+                        </ul>
         </nav>
     </div>
 <? endif ?>

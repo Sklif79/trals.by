@@ -89,4 +89,20 @@ $(document).ready(function () {
         $('#smartfilter .mob-hidden .submit').trigger('click');
     });
 
+    setZeroBasketValueDesktop();
 });
+
+$(window).resize(function () {
+    setZeroBasketValueDesktop();
+});
+
+function setZeroBasketValueDesktop() {
+    var basketZeroText = 'Корзина пуста',
+        $basketValue = $('.header__basket-value');
+
+    if ($(window).width() > 480 && $basketValue.text() === '0') {
+        $basketValue.text(basketZeroText);
+    } else if ($(window).width() <= 480 && $basketValue.text() === basketZeroText) {
+        $basketValue.text('0');
+    }
+}
