@@ -1,0 +1,19 @@
+.pr_1{
+    font-size: 12px;
+    font-family: monospace;
+    width: 100%;
+    color: #181819;
+    background: #EDEEF8;
+    border: 1px solid #006AC5;
+}
+.pr_2{
+    padding: 5px 10px;
+    font-size: 10px;
+    font-family: monospace;
+    background: #006AC5;
+    font-weight:bold;
+    color: #fff;
+}
+.pr_2 pre{
+    padding:10px;
+}

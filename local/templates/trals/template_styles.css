@@ -1,0 +1,20 @@
+.pagination li:first-of-type a:before, .pagination li:last-of-type a:before{
+    display:none;
+}
+
+
+.main__content .pagination .prev:before{
+    content: '\f104';
+    display: block;
+    font-size: 18px;
+    font-family: FontAwesome;
+    color: #333333;
+}
+
+.main__content .pagination .next:before{
+    content: '\f105';
+    display: block;
+    font-size: 18px;
+    font-family: FontAwesome;
+    color: #333333;
+}

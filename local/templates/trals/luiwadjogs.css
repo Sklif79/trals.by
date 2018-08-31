@@ -1,0 +1,99 @@
+.footer__menu li.has-children {position: relative;}
+.footer__menu li.has-children .sub-menu {
+    position: absolute;
+    display: none;
+    top: 36px;
+    left: 0;
+    width: 207px;
+    z-index: 10;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.footer__menu .sub-menu li {border-bottom: 1px solid #E4E4E4;}
+.footer__menu .sub-menu li a {
+    display: block;
+    padding: 9px 15px;
+    background: #fff;
+    border-left: 2px solid #fff;
+    color: #333333;
+    font-size: 13px;
+    line-height: 16px;
+    position: relative;
+}
+.footer__menu .sub-menu:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent #ffffff transparent;
+    position: absolute;
+    top: -6px;
+    left: 56px;
+}
+.footer__menu .sub-menu li a:hover {
+    border-left: 2px solid #D72922;
+    color: #D72922;
+}
+.footer__menu li.has-children > a:after {
+    content: '\f107';
+    display: block;
+    float: right;
+    font-size: 14px;
+    margin-left: 6px;
+    margin-top: 3px;
+    line-height: 17px;
+    font-family: FontAwesome;
+    color: #333333;
+}
+.footer__menu li.has-children:hover > a:after {content: '\f106';}
+@media (min-width: 481px) {
+	.footer__menu li.has-children:hover .sub-menu {display: block;}
+}
+
+.footer__menu > li > a {
+    display: block;
+    color: #333333;
+    font-family: "RobotoMedium";
+    font-size: 14px;
+    line-height: 17px;
+}
+.footer__menu li.has-children:hover > a,
+.footer__menu > li > a:hover {color: #D72922;}
+
+.footer__menu li.has-children .sub-menu {
+	top: auto;
+	bottom: 100%;
+	background-color: #fff;
+}
+
+.footer__menu li.has-children .sub-menu li {
+	float: none;
+	margin-right: 0;
+}
+
+.footer__menu .sub-menu:before {
+	top: auto;
+	bottom: -5px;
+	border-width: 6px 6px 0 6px;
+	border-color: #fff transparent transparent transparent;
+}
+
+
+@media only screen and (max-width: 480px) {
+	.footer__menu li a {
+		font-size: 13px;
+		line-height: 22px;
+		font-family: Roboto, sans-serif;
+	}
+
+	.footer__menu li.has-children > a:after {
+		display: inline-block;
+		float: none;
+	}
+
+	.footer__menu .sub-menu li {
+		width: 100%;
+	}
+}
+
