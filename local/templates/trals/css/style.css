@@ -1219,6 +1219,7 @@ h1 span {font-family: "RobotoRegular";}
     height: 6px;
 		margin-bottom: 23px;
 		padding: 0 15px 0 17px;
+	display: none;
 }
 .ui-slider {
     position: relative;
