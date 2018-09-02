@@ -46,7 +46,11 @@ $cofItog = 1 - $strCof;
         <div class="width-52">
             <h1 class="mob-hidden"><?= $arResult['NAME'] ?>
             </h1>
-            <div class="sku">Артикул: <span><?= $arProp['ARTNUMBER']['VALUE'] ?></span></div>
+            <div class="product-subtitle-wrap">
+                <div class="sku">Артикул: <span><?= $arProp['ARTNUMBER']['VALUE'] ?></span></div>
+                <div class="product-weight">Вес: 0.75 кг</div>
+            </div>
+
             <? /* <div class="lost">Остатки товара:
                 <div class="right"><?= $arProp['BALANCE']['VALUE'] ?></div>
 </div> */ ?>

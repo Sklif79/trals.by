@@ -975,12 +975,20 @@ h1 span {font-family: "RobotoRegular";}
 	margin-bottom: 13px;
 	margin-top: 14px;
 }
-.single-product__top .sku {
-	font-size: 12px;
-	color: #777777;
+.product-subtitle-wrap {
 	padding-bottom: 24px;
 	border-bottom: 1px solid #F0F0F0;
 	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	font-size: 12px;
+}
+.single-product__top .sku {
+	color: #777777;
+	margin-right: 40px;
+}
+.product-weight {
+	font-weight: 600;
 }
 .short-desc {
 	border-bottom: 1px solid #F0F0F0;
