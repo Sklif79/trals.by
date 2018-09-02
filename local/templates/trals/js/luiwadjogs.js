@@ -91,7 +91,8 @@ $(document).ready(function () {
 
     setZeroBasketValueDesktop();
     counterForm();
-    preventEnterSubmit()
+    preventEnterSubmit();
+    countFormSubmitBtn();
 });
 
 $(window).resize(function () {
@@ -139,5 +140,15 @@ function preventEnterSubmit() {
             e.preventDefault();
             return false;
         }
+    });
+}
+
+function countFormSubmitBtn() {
+    $(document).on('mouseenter', '.form-count__submit', function () {
+       $(this).val('Оформить');
+    });
+
+    $(document).on('mouseleave', '.form-count__submit', function () {
+        $(this).val('В корзину');
     });
 }
