@@ -90,6 +90,8 @@ $(document).ready(function () {
     });
 
     setZeroBasketValueDesktop();
+    counterForm();
+    preventEnterSubmit()
 });
 
 $(window).resize(function () {
@@ -105,4 +107,37 @@ function setZeroBasketValueDesktop() {
     } else if ($(window).width() <= 480 && $basketValue.text() === basketZeroText) {
         $basketValue.text('0');
     }
+}
+
+function counterForm() {
+    $(document).on('click', '.form-count__btn', function () {
+        var $input = $(this).parent().find('.form-count__value'),
+            val = parseInt($input.val()),
+            maxVal = parseInt($input.data('max-value'));
+
+        if ($(this).hasClass('form-count__btn-minus')) {
+            val -= 1;
+        } else if ($(this).hasClass('form-count__btn-plus')) {
+            val += 1;
+        }
+
+        if (val < 0) {
+            $input.val(0);
+            return;
+        } else if (val > maxVal) {
+            $input.val(maxVal);
+            return;
+        }
+
+        $input.val(val);
+    });
+}
+
+function preventEnterSubmit() {
+    $(document).on('keydown', 'input[type=text]', function (e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            return false;
+        }
+    });
 }
