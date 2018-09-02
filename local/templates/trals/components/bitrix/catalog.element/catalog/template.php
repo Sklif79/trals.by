@@ -98,6 +98,16 @@ $cofItog = 1 - $strCof;
                             <div class="right"><span><?= $arProp['PROP_COUNT_PAC']['VALUE'] ?></span></div>
                         </li>
                     <? } ?>
+                    <li>
+                        <form action="" method="post" name="" class="products-item__form price__list-count-form">
+                            <div class="form-count">
+                                <span class="form-count__btn form-count__btn-minus"></span>
+                                <input type="text" class="form-count__value" data-max-value="1010" value="1000">
+                                <span class="form-count__btn form-count__btn-plus"></span>
+                            </div>
+                            <input type="submit" class="form-count__submit" value="В корзину">
+                        </form>
+                    </li>
                 </ul>
             </div>
             <?

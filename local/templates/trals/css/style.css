@@ -1606,3 +1606,7 @@ html, body, .bd-site { height: 100%; }
 	background-color: #D72922;
 	color: #fff;
 }
+
+.price__list-count-form {
+	margin-bottom: 15px;
+}
