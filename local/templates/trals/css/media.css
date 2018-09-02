@@ -1336,9 +1336,10 @@
     .footer__top .container .back_top {
         /*display: none;*/
         position: fixed;
-        top: 50%;
         z-index: 40;
         right: 10px;
+        bottom: 50px;
+        top: auto;
     }
 
     .footer__top .width-28 p {
