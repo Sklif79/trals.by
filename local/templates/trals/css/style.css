@@ -798,6 +798,7 @@ h1 span {font-family: "RobotoRegular";}
 	font-weight: normal;
 	margin-bottom: 9px;
 	color: #333333;
+	min-height: 38px;
 }
 .products-item__options {
 	margin-top: 23px;
@@ -1461,11 +1462,11 @@ html, body, .bd-site { height: 100%; }
 }
 
 .catalog-list .products-item, .catalog-list .item {
-	height: 454px;
+	height: 467px;
 }
 
 .catalog-list .products-item:hover {
-	height: 463px;
+	height: 476px;
 }
 
 .hidden-desktop {

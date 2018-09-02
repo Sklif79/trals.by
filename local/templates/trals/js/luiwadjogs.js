@@ -135,7 +135,7 @@ function counterForm() {
 }
 
 function preventEnterSubmit() {
-    $(document).on('keydown', 'input[type=text]', function (e) {
+    $(document).on('keydown', '.form-count__value', function (e) {
         if (e.keyCode == 13) {
             e.preventDefault();
             return false;
