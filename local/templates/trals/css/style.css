@@ -95,6 +95,7 @@ body {
 .row:after {
 	content: " ";
 	display: table;
+    clear: both;
 }
 .clearfix:after,
 .container:after,
@@ -1680,4 +1681,30 @@ html, body, .bd-site { height: 100%; }
 
 .product-item_sale .right__old-price {
 	color: #999;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 0;
+    background: 0;
+    text-transform: uppercase;
+    color: #999;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-back-label {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.btn-back-label::before {
+    content: "\f104";
+    font-family: FontAwesome;
+    font-size: 18px;
+    float: left;
+    margin-right: 5px;
+    color: #999;
 }

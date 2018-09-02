@@ -13,6 +13,11 @@
 $this->setFrameMode(true);
 ?>
 <div class="search-page">
+    <div class="back-wrap">
+        <label class="btn-back-label">
+            <input type="button" onclick="history.back();" value="Назад" class="btn-back"/>
+        </label>
+    </div>
     <form class="search clearfix">
         <input class="search__txt" value="<? echo htmlspecialchars($_REQUEST['q']) ?>" name="q" placeholder="Поиск по названию, артикулу, EAN " type="search">
         <button class="search__submit" type="submit"><span>Найти</span></button>
