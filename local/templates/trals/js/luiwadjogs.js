@@ -94,10 +94,13 @@ $(document).ready(function () {
     preventEnterSubmit();
     countFormSubmitBtn();
     asideSmartFilter();
+    orderSubmit();
+    tabs();
 });
 
 $(window).resize(function () {
     setZeroBasketValueDesktop();
+    tabs();
 });
 
 //подпись при нулевом значении в корзине
@@ -186,4 +189,92 @@ function asideSmartFilter() {
         .keyup(function () {
             $(this).change();
         });
+}
+
+//отправка формы
+function orderSubmit() {
+    $(document).on('submit', '.basket-form', function (e) {
+        var form_data;
+
+        e.preventDefault();
+
+        if (formOrderValid($(this))) {
+            form_data = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://trals.my-veda.ru/catalog/elementy-pitaniya/',
+                data: form_data,
+
+                success: function (response) {
+                    var successHTML = $(
+                        '<div class="success-page">' +
+                        '<div class="success-image"><img src="/local/templates/trals/images/success.jpg" alt=""></div>' +
+                        '<div class="success-info">Ваш заказ успешно создан</div>' +
+                        '<div class="success-btn-wrap"><a href="/" class="success-btn">На главную</a></div>' +
+                        '</div>'
+                    );
+
+                    $('.basket-page').html(successHTML);
+                },
+
+                error: function (jqXHR, exception) {
+                    // Our error logic here
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+
+                    alert(msg);
+                }
+            });
+        }
+    })
+}
+
+//валидация формы
+function formOrderValid($form) {
+    var result = true;
+
+    $('.js_required', $form).each(function () {
+        $(this).removeClass('no_valid');
+
+        if ($(this).find('input, textarea').val().trim() === '') {
+            $(this).addClass('no_valid');
+            result = false;
+        }
+    });
+
+    return result;
+}
+
+//табы
+
+function tabs() {
+    if ($(window).width() <= 740) {
+        $('.tab').on('click', function () {
+            $(this).closest('.tabs-wrap').find('.tab, .panel').removeClass('active');
+            $(this).addClass('active').closest('.tabs-wrap')
+                .find('div[data-id="' + $(this).attr('data-id') + '"]').addClass('active');
+        });
+
+        $('span[data-id="tab1"]').text('Для юр. лиц');
+        $('span[data-id="tab2"]').text('Для физ. лиц');
+    } else {
+        $('.tab').off('click');
+        $('span[data-id="tab1"]').text('Для юридических лиц');
+        $('span[data-id="tab2"]').text('Для физических лиц');
+    }
 }

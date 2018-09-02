@@ -1044,7 +1044,189 @@
         margin-top: -2px;
     }
 
+    .basket-warning-wrap {
+        flex-direction: column;
+    }
+
+    .basket-warning {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .back-catalog-btn {
+        align-self: flex-start;
+    }
+
+    .basket-table th:nth-of-type(1), .basket-table td:nth-of-type(1) {
+        display: none;
+    }
+
+    .basket-table th:nth-of-type(2), .basket-table td:nth-of-type(2) {
+        border-left: 1px solid #C4C4C4;
+    }
+
+    .basket-table th, .basket-table td {
+        padding-left: 14px;
+    }
+
+    .basket-table td {
+        padding: 18px 12px 21px 14px;
+        font-size: 13px;
+    }
+
+    .basket-table th:nth-of-type(2) {
+        width: auto;
+        min-width: 0;
+    }
+
+    .basket-table__title {
+        margin-bottom: 11px;
+    }
+
+    .basket-table__del {
+        text-indent: 100px;
+        overflow: hidden;
+        width: 11px;
+        padding: 0;
+    }
+
+    .basket-table .form-count {
+        width: 93px;
+        margin-right: 0;
+        height: 31px;
+    }
+
+    .basket-table td:nth-of-type(1), .basket-table td:nth-of-type(4) {
+        padding-top: 10px;
+    }
+
+    .basket-form-price {
+        font-size: 16px;
+    }
+
+    .basket-form-price span {
+        display: block;
+        white-space: nowrap;
+        margin-top: 5px;
+    }
+
+    .basket-form__submit {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+
+    .form-field-total {
+        padding: 15px 20px 15px 13px;
+    }
+
     /* END style */
+}
+
+@media screen and (max-width: 740px) {
+    .basket-table tr:first-of-type {
+        display: none;
+    }
+
+    .basket-table td {
+        border:none!important;
+    }
+
+    .basket-table, .basket-table tbody, .basket-table tr {
+        display: block;
+    }
+
+    .basket-table tr {
+        border: 1px solid #C4C4C4;
+        margin-bottom: -1px;
+        padding: 25px 20px 5px;
+    }
+
+    .label-mobile, .label-sku {
+        display: block;
+        white-space: nowrap;
+        flex: none;
+        min-width: 95px;
+        width: 40%;
+        color: #999;
+        font-weight: 400;
+    }
+
+    .basket-table td, .basket-table__sku {
+        display: flex;
+        align-items: center;
+        padding: 0;
+    }
+
+    .basket-table__sku {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .basket-table td {
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    .basket-table td:nth-of-type(2) {
+        display: block;
+    }
+
+    .basket-table__del {
+        text-indent: 0;
+        width: auto;
+        padding-left: 15px;
+    }
+
+    .basket-table__title {
+        font-size: 14px;
+    }
+
+    .basket-table td:nth-of-type(4) {
+        padding-top: 0;
+    }
+
+    .tab {
+        cursor: pointer;
+        user-select: none;
+        height: 26px;
+        line-height: 26px;
+        color: #D72922;
+        font-size: 13px;
+        text-align: center;
+        font-weight: 400;
+        width: 50%;
+    }
+    .tab.active {
+        cursor: default;
+        color: #fff;
+        background: #D72922;;
+    }
+    .panel {
+        display: none;
+        width: 100%;
+    }
+    .panel.active {
+        display: block;
+    }
+
+    .form-field-total {
+        background: transparent;
+        padding: 0;
+    }
+
+    .tabs {
+        border: 1px solid #D72922;
+        border-radius: 3px;
+        margin-bottom: 22px;
+    }
+
+    .basket-form-price {
+        font-size: 14px;
+    }
+
+    .basket-form__submit {
+        padding: 0 14px;
+    }
 }
 
 @media screen and (max-width: 680px) {
