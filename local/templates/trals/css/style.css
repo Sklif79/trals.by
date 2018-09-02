@@ -1595,9 +1595,10 @@ html, body, .bd-site { height: 100%; }
 	color: #D72922;
 	background: transparent;
 	border-radius: 3px;
-	padding: 0 15px;
+	padding: 0 5px;
 	text-transform: uppercase;
 	width: 100%;
+	font-size: 12px;
 }
 
 .form-count__submit:hover {

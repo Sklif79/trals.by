@@ -549,7 +549,7 @@
         padding-bottom: 25px;
         padding-right: 20px;
         padding-left: 20px;
-        height: 318px;
+        height: 374px;
     }
 
     .checkbox {
@@ -583,12 +583,12 @@
     }
 
     .catalog-list .item {
-        height: 307px;
+        height: 365px;
         width: 50%;
     }
 
     .catalog-list .products-item {
-        height: 307px;
+        height: 365px;
     }
 
     .main {
@@ -1137,14 +1137,6 @@
 
     .mobile-filters +  .width-75 {
         width: 100%;
-    }
-
-    .catalog-list .item, .catalog-list .products-item {
-        height: 320px;
-    }
-
-    .catalog-list .products-item:hover {
-        height: 331px;
     }
 
     .partners-item {
@@ -1813,7 +1805,7 @@
 
     .catalog-list .item,
     .catalog-list .products-item {
-        height: 393px;
+        height: 445px;
     }
 
     .contact-page .modal__address.tab-show .title,
@@ -1870,7 +1862,7 @@
     }
 
     .catalog-list .products-item:hover {
-        height: 404px;
+        height: 454px;
     }
 
     .header__basket {
