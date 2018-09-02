@@ -16,11 +16,11 @@ if (!empty($arResult['ITEMS'])) {
                     </div>
                     <h2 class="products-item__title"><?= $arItem['NAME'] ?></h2>
                     <ul class="products-item__options">
-                        <li class="price"><span class="left">Розничная цена.</span><span
+                        <li class="price"><span class="left">Розничная цена. <b>за шт</b></span><span
                                     class="right"><?= round($arItem['PROPERTIES']['PRICE']['VALUE'] + $arItem['PROPERTIES']['PRICE']['VALUE'] * 0.1, 2) ?>
                                 руб</span>
                         </li>
-                        <li class="price"><span class="left">Оптовая цена</span><span
+                        <li class="price"><span class="left">Оптовая цена <b>за шт</b></span><span
                                     class="right"><?= round($arItem['PROPERTIES']['PRICE']['VALUE'] * $cofItog, 2) ?>
                                 руб</span>
                         </li>
