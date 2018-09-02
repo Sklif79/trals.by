@@ -120,6 +120,7 @@ $arMenuSort = $arParams['arMenuSort'];
                             <div class="aside__filter__item">
                                 <div class="aside__filter__item__title accordion-item"><?= $arItem['NAME'] ?></div>
                                 <div class="aside__filter__item__var data">
+                                    <input type="text" class="aside__filter-field" style="display: none">
                                     <ul class="checkbox">
                                         <?
                                         foreach ($arItem['VALUES'] as $value) {

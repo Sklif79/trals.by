@@ -106,6 +106,7 @@ var maxLi = 10, text = ["Скрыть", "Показать еще"];
 $("ul.checkbox").each(function() {
     var li = $(this).find("li");
     if (li.length > maxLi) {
+    	$(this).prev('.aside__filter-field').show();
         li = li.slice(maxLi).hide();
         var btn = $("<div>", {
             text: text[1],

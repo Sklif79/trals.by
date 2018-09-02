@@ -1708,3 +1708,24 @@ html, body, .bd-site { height: 100%; }
     margin-right: 5px;
     color: #999;
 }
+
+.filter-el-hide {
+    display: none!important;
+}
+
+.filter-el-show {
+    display: block !important;
+}
+
+.aside__filter-field {
+	border: 1px solid #DFDFDE;
+	display: inline-block;
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 18px;
+	width: 100%;
+	border-radius: 2px;
+	padding: 5px 30px 5px 10px;
+	background: #fff url("../images/i/ico-search.png") 97.6% 50% no-repeat;
+	background-size: 15px auto;
+}

@@ -93,12 +93,14 @@ $(document).ready(function () {
     counterForm();
     preventEnterSubmit();
     countFormSubmitBtn();
+    asideSmartFilter();
 });
 
 $(window).resize(function () {
     setZeroBasketValueDesktop();
 });
 
+//подпись при нулевом значении в корзине
 function setZeroBasketValueDesktop() {
     var basketZeroText = 'Корзина пуста',
         $basketValue = $('.header__basket-value');
@@ -110,6 +112,7 @@ function setZeroBasketValueDesktop() {
     }
 }
 
+//счетчик
 function counterForm() {
     $(document).on('click', '.form-count__btn', function () {
         var $input = $(this).parent().find('.form-count__value'),
@@ -134,6 +137,7 @@ function counterForm() {
     });
 }
 
+//блокировка действия по вводу
 function preventEnterSubmit() {
     $(document).on('keydown', '.form-count__value', function (e) {
         if (e.keyCode == 13) {
@@ -143,6 +147,7 @@ function preventEnterSubmit() {
     });
 }
 
+//кнопка в корзину
 function countFormSubmitBtn() {
     $(document).on('mouseenter', '.form-count__submit', function () {
        $(this).val('Оформить');
@@ -151,4 +156,34 @@ function countFormSubmitBtn() {
     $(document).on('mouseleave', '.form-count__submit', function () {
         $(this).val('В корзину');
     });
+}
+
+//умный фильтр
+function asideSmartFilter() {
+    $('.aside__filter-field')
+        .change(
+            function (e) {
+                e.stopPropagation();
+
+                var inputValue = $(this).val(),
+                    $list = $(this).next('.checkbox').find('li'),
+                    $moreBtn = $(this).closest('.aside__filter__item__var').find('.see-more');
+
+                if (inputValue.trim() !== '') {
+                    $moreBtn.addClass('filter-el-hide');
+                    $list.removeClass('filter-el-show').addClass('filter-el-hide');
+                } else {
+                    $moreBtn.removeClass('filter-el-hide');
+                    $list.removeClass('filter-el-hide filter-el-show');
+                    return;
+                }
+
+                $(this).next('.checkbox').find('li').filter(function () {
+                    return ~$(this).find('span').text().toLowerCase().indexOf(inputValue.toLowerCase());
+                }).addClass('filter-el-show');
+            }
+        )
+        .keyup(function () {
+            $(this).change();
+        });
 }
