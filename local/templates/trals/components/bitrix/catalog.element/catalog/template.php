@@ -15,7 +15,9 @@ $arProp = $arResult['PROPERTIES'];
 $percent = tplvar('percent');
 $strCof = '0.' . $percent;
 $cofItog = 1 - $strCof;
-?><div class="single-product">
+?>
+<!--    добавить класс product-item_sale для товаров по акции       -->
+<div class="single-product product-item_sale">
     <div class="single-product__top row">
         <div class="width-48">
             <div class="tovar-picts">
@@ -31,6 +33,8 @@ $cofItog = 1 - $strCof;
                                             title="">
                                         <img src="<?= $arResult['MORE_PHOTO']['MAX'][$photoID]['src'] ?>" alt=""/>
                                     </a>
+                                    <!--    добавить класс active для товаров по акции       -->
+                                    <div class="label-sale active">Акция</div>
                                 </div>
                             <? } ?>
                         </div>
@@ -88,11 +92,14 @@ $cofItog = 1 - $strCof;
             <div class="price">
                 <h3>Цены </h3>
                 <ul class="price__list">
+                    <li>Оптовая цена, безнал <!--<span>-<?= $percent ?>%--></span>
+                        <div class="right">
+                            <span class="right__old-price">299 руб</span>
+                            <?= round(($arProp['PRICE']['VALUE'] * $cofItog), 2) ?> руб.
+                        </div>
+                    </li>
                     <li>Розничная цена
                         <div class="right"><?= round($arProp['PRICE']['VALUE']+$arProp['PRICE']['VALUE']*0.1, 2) ?> руб.</div>
-                    </li>
-                    <li>Оптовая цена, безнал <!--<span>-<?= $percent ?>%--></span>
-                        <div class="right"><?= round(($arProp['PRICE']['VALUE'] * $cofItog), 2) ?> руб.</div>
                     </li>
                     <li>Остатки товара
                         <div class="right"><?= GetBalanceText($arProp['BALANCE']['VALUE']) ?></div>

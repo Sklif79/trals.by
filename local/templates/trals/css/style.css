@@ -799,18 +799,26 @@ h1 span {font-family: "RobotoRegular";}
 	margin-bottom: 9px;
 	color: #333333;
 }
+.products-item__options {
+	margin-top: 23px;
+}
 .products-item__options li {
 	font-size: 14px;
 	line-height: 17px;
 	color: #999999;
 	margin-bottom: 7px;
+	position: relative;
 }
 .products-item__options li:last-of-type {margin-bottom: 0;}
 .products-item__options li span.right {
 	display: block;
 	float: right;
 }
-.products-item__options li {overflow: hidden;}
+.products-item__options li::after {
+	content: "";
+	display: block;
+	clear: both;
+}
 .products-item__options li span.left {
 	display: block;
 	float: left;
@@ -1006,6 +1014,9 @@ h1 span {font-family: "RobotoRegular";}
 	line-height: 17px;
 	margin-bottom: 6px;
 	color: #999999;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
 }
 .price__list {max-width: 328px;}
 .price__list .right {
@@ -1449,11 +1460,11 @@ html, body, .bd-site { height: 100%; }
 }
 
 .catalog-list .products-item, .catalog-list .item {
-	height: 442px;
+	height: 454px;
 }
 
 .catalog-list .products-item:hover {
-	height: 451px;
+	height: 463px;
 }
 
 .hidden-desktop {
@@ -1553,6 +1564,7 @@ html, body, .bd-site { height: 100%; }
 	display: flex;
 	justify-content: space-between;
 	margin-top: 16px;
+	flex-grow: 1;
 }
 
 .form-count {
@@ -1623,4 +1635,47 @@ html, body, .bd-site { height: 100%; }
 
 .price__list-count-form {
 	margin-bottom: 15px;
+}
+
+.label-sale {
+	color: #fff;
+	background-color: #D72922;
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+	font-size: 13px;
+	position: absolute;
+	top: 30px;
+	left: 20px;
+	line-height: 70px;
+	text-align: center;
+	display: none;
+}
+
+.product-item_sale .label-sale, .product-item_sale .right__old-price {
+	display: block;
+}
+
+.products-item__pic .label-sale {
+	width: 53px;
+	height: 53px;
+	font-size: 12px;
+	top: 25px;
+	line-height: 51px;
+}
+
+.right__old-price {
+	color: #999;
+	font-size: 12px;
+	text-decoration: line-through;
+	text-align: right;
+	display: none;
+	line-height: 13px;
+	position: absolute;
+	right: 0;
+	bottom: 105%;
+}
+
+.product-item_sale .right__old-price {
+	color: #999;
 }

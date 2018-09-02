@@ -8,21 +8,22 @@ if (!empty($arResult['ITEMS'])) {
     foreach ($arResult['ITEMS'] as $arItem) {
         ?>
         <div class="item">
-            <div class="products-item">
+            <!--    добавить класс product-item_sale для товаров по акции       -->
+            <div class="products-item product-item_sale">
                 <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>">
                     <div class="products-item__pic">
                         <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>"
                              alt="<?= $arItem['PREVIEW_PICTURE']['ALT'] ?>">
+                        <div class="label-sale">Акция</div>
                     </div>
                     <h2 class="products-item__title"><?= $arItem['NAME'] ?></h2>
                     <ul class="products-item__options">
-                        <li class="price"><span class="left">Розничная цена. <b>за шт</b></span><span
-                                    class="right"><?= round($arItem['PROPERTIES']['PRICE']['VALUE'] + $arItem['PROPERTIES']['PRICE']['VALUE'] * 0.1, 2) ?>
-                                руб</span>
+                        <li class="price"><span class="left">Оптовая цена <b>за шт</b></span><span class="right">
+                                <span class="right__old-price">299 руб</span>
+                                <?= round($arItem['PROPERTIES']['PRICE']['VALUE'] * $cofItog, 2) ?> руб</span>
                         </li>
-                        <li class="price"><span class="left">Оптовая цена <b>за шт</b></span><span
-                                    class="right"><?= round($arItem['PROPERTIES']['PRICE']['VALUE'] * $cofItog, 2) ?>
-                                руб</span>
+                        <li class="price"><span class="left">Розничная цена. <b>за шт</b></span><span class="right">
+                                <?= round($arItem['PROPERTIES']['PRICE']['VALUE'] + $arItem['PROPERTIES']['PRICE']['VALUE'] * 0.1, 2) ?>руб</span>
                         </li>
                         <li class="remainder"><span class="left">Остатки</span><span
                                     class="right"><?= GetBalanceText($arItem['PROPERTIES']['BALANCE']['VALUE']) ?></span>

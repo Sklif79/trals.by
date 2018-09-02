@@ -528,6 +528,10 @@
         padding: 20px 15px;
     }
 
+    .products-item__options {
+        margin-top: 0;
+    }
+
     .products-item__pic {
         height: 138px;
         line-height: 138px;
@@ -542,6 +546,10 @@
     .slider-input > div {
         padding-top: 3px;
         padding-bottom: 3px;
+    }
+
+    .right__old-price {
+        font-size: 11px;
     }
 
     .catalog-list .products-item:hover {
