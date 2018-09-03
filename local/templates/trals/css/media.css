@@ -1353,7 +1353,28 @@
         width: 50%;
     }
 
+    .catalog-area__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #D72922;
+        border-radius: 3px;
+        padding: 6px 15px 7px 15px;
+        font-size: 14px;
+        cursor: pointer;
+    }
 
+    .catalog-area__header {
+        margin-bottom: 20px;
+    }
+
+    .mobile-filter-trigger2 {
+        flex-grow: 1;
+    }
+
+    .mobile-filter-trigger {
+        margin-left: 0;
+    }
 }
 
 /* Мобила */
@@ -1687,10 +1708,6 @@
         font-size: 16px;
         line-height: 19px;
     }
-
-
-
-
 
     /* Карта */
     .fb-modal-win .g-modal-win__content {
