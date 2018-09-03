@@ -1179,6 +1179,11 @@
         padding: 15px 20px 15px 13px;
     }
 
+    .products-item__pic .label-sale {
+        top: -4px;
+        left: 2px;
+    }
+
     /* END style */
 }
 

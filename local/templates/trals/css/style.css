@@ -828,6 +828,7 @@ h1 span {font-family: "RobotoRegular";}
 	margin-bottom: 20px;
 	line-height: 200px;
 	text-align: center;
+	position: relative;
 }
 .products-item__pic img {
 	display: inline-block;
@@ -1769,7 +1770,8 @@ html, body, .bd-site { height: 100%; }
 	width: 53px;
 	height: 53px;
 	font-size: 12px;
-	top: 25px;
+	top: -10px;
+	left: -7px;
 	line-height: 51px;
 }
 
