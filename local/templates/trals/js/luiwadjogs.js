@@ -207,15 +207,19 @@ function orderSubmit() {
                 data: form_data,
 
                 success: function (response) {
-                    var successHTML = $(
-                        '<div class="success-page">' +
-                        '<div class="success-image"><img src="/local/templates/trals/images/success.jpg" alt=""></div>' +
-                        '<div class="success-info">Ваш заказ успешно создан</div>' +
-                        '<div class="success-btn-wrap"><a href="/" class="success-btn">На главную</a></div>' +
-                        '</div>'
-                    );
+                    var successHTML;
 
-                    $('.basket-page').html(successHTML);
+                    if (response) {
+                        successHTML = $(
+                            '<div class="success-page">' +
+                            '<div class="success-image"><img src="/local/templates/trals/images/success.jpg" alt=""></div>' +
+                            '<div class="success-info">Ваш заказ успешно создан</div>' +
+                            '<div class="success-btn-wrap"><a href="/" class="success-btn">На главную</a></div>' +
+                            '</div>'
+                        );
+
+                        $('.basket-page').html(successHTML);
+                    }
                 },
 
                 error: function (jqXHR, exception) {
