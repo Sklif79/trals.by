@@ -92,10 +92,11 @@ $(document).ready(function () {
     setZeroBasketValueDesktop();
     counterForm();
     preventEnterSubmit();
-    countFormSubmitBtn();
+    // countFormSubmitBtn();
     asideSmartFilter();
     orderSubmit();
     tabs();
+    tabsTrigger();
 });
 
 $(window).resize(function () {
@@ -151,15 +152,15 @@ function preventEnterSubmit() {
 }
 
 //кнопка в корзину
-function countFormSubmitBtn() {
-    $(document).on('mouseenter', '.form-count__submit', function () {
-       $(this).val('Оформить');
-    });
-
-    $(document).on('mouseleave', '.form-count__submit', function () {
-        $(this).val('В корзину');
-    });
-}
+// function countFormSubmitBtn() {
+//     $(document).on('mouseenter', '.form-count__submit', function () {
+//        $(this).val('Оформить');
+//     });
+//
+//     $(document).on('mouseleave', '.form-count__submit', function () {
+//         $(this).val('В корзину');
+//     });
+// }
 
 //умный фильтр
 function asideSmartFilter() {
@@ -188,6 +189,33 @@ function asideSmartFilter() {
         )
         .keyup(function () {
             $(this).change();
+
+            /**
+             * Принцип работы фильтра по поисково строке :
+             * находим элементы с классом "filter-el-show"
+             * делаем тригер клика, и запускаем поиск тригером клика
+             * Обнуление значений происходит в файле common.js в $('.aside__filter-field').keyup() методе
+             * */
+
+            var par = $(this).parent().find('li');
+            var elem = par.filter((i,item) => {
+                return $(item).hasClass('filter-el-show');
+            });
+
+            function triggerClick(elem) {
+                $(elem).each((i, item) => {
+                    $(item).find('input').each((i,res) => {
+                        $(res).trigger('click');
+                    })
+                });
+            }
+            triggerClick(elem); // ставит чекбоксы
+
+            $(document).find('a.btn.submit.gray').each((i,elem) => {
+                if(i == 1) {
+                    $(elem).trigger('click');
+                }
+            });
         });
 }
 
@@ -207,19 +235,15 @@ function orderSubmit() {
                 data: form_data,
 
                 success: function (response) {
-                    var successHTML;
+                    var successHTML = $(
+                        '<div class="success-page">' +
+                        '<div class="success-image"><img src="/local/templates/trals/images/success.jpg" alt=""></div>' +
+                        '<div class="success-info">Ваш заказ успешно создан</div>' +
+                        '<div class="success-btn-wrap"><a href="/" class="success-btn">На главную</a></div>' +
+                        '</div>'
+                    );
 
-                    if (response) {
-                        successHTML = $(
-                            '<div class="success-page">' +
-                            '<div class="success-image"><img src="/local/templates/trals/images/success.jpg" alt=""></div>' +
-                            '<div class="success-info">Ваш заказ успешно создан</div>' +
-                            '<div class="success-btn-wrap"><a href="/" class="success-btn">На главную</a></div>' +
-                            '</div>'
-                        );
-
-                        $('.basket-page').html(successHTML);
-                    }
+                    $('.basket-page').html(successHTML);
                 },
 
                 error: function (jqXHR, exception) {
@@ -267,18 +291,26 @@ function formOrderValid($form) {
 //табы
 
 function tabs() {
-    if ($(window).width() <= 740) {
-        $('.tab').on('click', function () {
-            $(this).closest('.tabs-wrap').find('.tab, .panel').removeClass('active');
-            $(this).addClass('active').closest('.tabs-wrap')
-                .find('div[data-id="' + $(this).attr('data-id') + '"]').addClass('active');
-        });
+    $('.tab').off('click');
+    $('.tab').on('click', function () {
+        $(this).closest('.tabs-wrap').find('.tab, .panel').removeClass('active');
+        $(this).addClass('active').closest('.tabs-wrap')
+            .find('div[data-id="' + $(this).attr('data-id') + '"]').addClass('active');
+    });
 
+    if ($(window).width() <= 740) {
         $('span[data-id="tab1"]').text('Для юр. лиц');
         $('span[data-id="tab2"]').text('Для физ. лиц');
     } else {
-        $('.tab').off('click');
         $('span[data-id="tab1"]').text('Для юридических лиц');
         $('span[data-id="tab2"]').text('Для физических лиц');
     }
+}
+
+function tabsTrigger() {
+    $('.entity-type__radio').on('click', function () {
+        $('.tab[data-id="' + $(this).data('id') + '"]').trigger('click');
+
+        $('.basket-table td:nth-of-type(5), .basket-table td:nth-of-type(7)').css('opacity', '1');
+    });
 }

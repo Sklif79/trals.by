@@ -1259,43 +1259,9 @@
         padding-top: 0;
     }
 
-    .tab {
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        height: 26px;
-        line-height: 26px;
-        color: #D72922;
-        font-size: 13px;
-        text-align: center;
-        font-weight: 400;
-        width: 50%;
-    }
-    .tab.active {
-        cursor: default;
-        color: #fff;
-        background: #D72922;;
-    }
-    .panel {
-        display: none;
-        width: 100%;
-    }
-    .panel.active {
-        display: block;
-    }
-
     .form-field-total {
         background: transparent;
         padding: 0;
-    }
-
-    .tabs {
-        border: 1px solid #D72922;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        margin-bottom: 22px;
     }
 
     .basket-form-price {
