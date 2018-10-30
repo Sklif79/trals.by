@@ -123,10 +123,12 @@ function counterForm() {
             val = parseInt($input.val()),
             maxVal = parseInt($input.data('max-value'));
 
+        var ratio = $(this).parents('.form-count').find('input').data('ratio');
+
         if ($(this).hasClass('form-count__btn-minus')) {
-            val -= 1;
+            val -= ratio;
         } else if ($(this).hasClass('form-count__btn-plus')) {
-            val += 1;
+            val += ratio;
         }
 
         if (val < 0) {
@@ -197,25 +199,25 @@ function asideSmartFilter() {
              * Обнуление значений происходит в файле common.js в $('.aside__filter-field').keyup() методе
              * */
 
-            var par = $(this).parent().find('li');
-            var elem = par.filter((i,item) => {
-                return $(item).hasClass('filter-el-show');
-            });
-
-            function triggerClick(elem) {
-                $(elem).each((i, item) => {
-                    $(item).find('input').each((i,res) => {
-                        $(res).trigger('click');
-                    })
-                });
-            }
-            triggerClick(elem); // ставит чекбоксы
-
-            $(document).find('a.btn.submit.gray').each((i,elem) => {
-                if(i == 1) {
-                    $(elem).trigger('click');
-                }
-            });
+            // var par = $(this).parent().find('li');
+            // var elem = par.filter((i,item) => {
+            //     return $(item).hasClass('filter-el-show');
+            // });
+            //
+            // function triggerClick(elem) {
+            //     $(elem).each((i, item) => {
+            //         $(item).find('input').each((i,res) => {
+            //             $(res).trigger('click');
+            //         })
+            //     });
+            // }
+            // triggerClick(elem); // ставит чекбоксы
+            //
+            // $(document).find('a.btn.submit.gray').each((i,elem) => {
+            //     if(i == 1) {
+            //         $(elem).trigger('click');
+            //     }
+            // });
         });
 }
 

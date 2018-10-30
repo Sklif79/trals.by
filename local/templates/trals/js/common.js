@@ -1,5 +1,30 @@
 $(document).ready(function() {
-	// Слайдер брендов
+	$('.goToBack').on('click',function () {
+        goHistoryBack();
+        return false;
+    });
+    function goHistoryBack() {
+        history.go(-2);
+        setTimeout(window.location.reload.bind(window.location), 250);
+    }
+    // обнуление при вводе значения всех чекбоксов.
+    // $('.aside__filter-field').keyup(function () {
+    //     var par = $(this).parent().find('li');
+    //     var elem = par.filter((i,item) => {
+    //         return $(item).hasClass('filter-el-show');
+    //     });
+    //     function triggerClick(elem) {
+    //         $(elem).each((i, item) => {
+    //             $(item).find('input').each((i,res) => {
+    //                 $(res).trigger('click');
+    //             })
+    //         });
+    //     }
+    //
+    //     triggerClick(elem)
+    // });
+
+    // Слайдер брендов
   $('.js-brands-slider').owlCarousel({
 		stopOnHover : true,
 		navigationText: ['',''],
@@ -218,5 +243,58 @@ function catalogPrew() {
 if(document.documentElement.clientWidth <= 480) {
 	catalogPrew();
 }
+
+
+$('input.form-count__submit.toBasket').click(function () {
+    if($(this).hasClass('toBasket')){
+        var input = $(this).closest('form').find('.form-count__value');
+        var btn = $(this);
+        console.log(btn);
+        var input_val = input.val();
+        var product_id = input.data('id');
+        var url = window.location.origin+'/ajax/add2Basket.php';
+        data = {quantity: input_val, id: product_id};
+        console.log(url);
+        $.ajax({
+            url: url,
+            data: data,
+            success: function (response) {
+                console.log(JSON.parse(response));
+                btn.val('Оформить');
+                $(document).find(btn).removeClass('toBasket').addClass('toIssue').click(function () {
+                    countRabbit();
+                });
+
+                // обновляем малую корзину при успешном добавлении товара.
+                var urltocount = window.location.origin+'/ajax/countProductsInBasket.php';
+                $.ajax({
+                    url: urltocount,
+                    data: data,
+                    success: function (response) {
+                        var resp = JSON.parse(response);
+                        if($('.header__basket-value_no_red').hasClass('header__basket-value_no_red')) {
+                            $('.header__basket-value_no_red').wrap("<div class='wraper_bck'></div>");
+                            $('.header__basket-value_no_red').removeClass('header__basket-value_no_red').addClass('header__basket-value');
+                            $('.header__basket-value').text(resp.length);
+                            $(".wraper_bck").before('Корзина');
+                        } else {
+                            $('.header__basket-value').text(resp.length);
+                        }
+
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }else {
+        countRabbit();
+    }
+    return false;
+});
 
 });

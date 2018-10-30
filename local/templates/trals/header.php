@@ -320,18 +320,30 @@ CJSCore::Init(array('ajax'));
                         <div class="mobile-address-trigger">
                             <i></i>
                         </div>
-
-                        <? $APPLICATION->IncludeComponent(
-                            "bitrix:main.include",
-                            "",
-                            Array(
-                                "AREA_FILE_SHOW" => "file",
-                                "AREA_FILE_SUFFIX" => "inc",
-                                "EDIT_TEMPLATE" => "",
-                                "PATH" => "/includes/header2.php",
-                            ),
-                            false
-                        ); ?>
+                        <?$APPLICATION->IncludeComponent(
+	"bitrix:sale.basket.basket.small", 
+	"small_basket", 
+	array(
+		"PATH_TO_BASKET" => "/basket/",
+		"PATH_TO_ORDER" => "/order.php",
+		"SHOW_DELAY" => "N",
+		"SHOW_NOTAVAIL" => "N",
+		"SHOW_SUBSCRIBE" => "N",
+		"COMPONENT_TEMPLATE" => "small_basket"
+	),
+	false
+);?>
+<!--                        --><?// $APPLICATION->IncludeComponent(
+//                            "bitrix:main.include",
+//                            "",
+//                            Array(
+//                                "AREA_FILE_SHOW" => "file",
+//                                "AREA_FILE_SUFFIX" => "inc",
+//                                "EDIT_TEMPLATE" => "",
+//                                "PATH" => "/includes/header2.php",
+//                            ),
+//                            false
+//                        ); ?>
                     </div>
                 </div>
             </div>
@@ -352,9 +364,18 @@ CJSCore::Init(array('ajax'));
         ),
         false
     );
+    if(CSite::Indir('/catalog/')) {?>
+        <div class="" style="display: flex; align-items: center; cursor: pointer;">
+            <span style="color: #7D7D7D; width: 6px; height: 10px; background-image: url('<?=SITE_TEMPLATE_PATH?>/images/angle-arrow-pointing-to-right.png'); background-repeat: no-repeat">&nbsp;</span>
+            &nbsp;
+            <a class="goToBack"><span style="color: #7D7D7D;font-weight: bold; font-size: 14px; line-height: 16px; text-transform: uppercase;">Назад</span></a>
+        </div>
+        <br>
+    <?}
     $noH1=array('/contacts/','/404.php');
     if(!in_array($URL,$noH1)){?>
         <h1><? $APPLICATION->ShowTitle(false) ?></h1>
     <?}
     ?>
+
 <? } ?>

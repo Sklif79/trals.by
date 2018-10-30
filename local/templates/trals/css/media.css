@@ -1193,7 +1193,7 @@
     }
 
     .basket-table td {
-        border:none!important;
+        border: none !important;
     }
 
     .basket-table, .basket-table tbody, .basket-table tr {
@@ -1384,7 +1384,7 @@
         margin-left: 20px;
     }
 
-    .mobile-filters +  .width-75 {
+    .mobile-filters + .width-75 {
         width: 100%;
     }
 
@@ -2024,7 +2024,6 @@
     /*max-width: 119px;*/
     /*max-height: 55px;*/
     /*}*/
-
     /* Результаты поиска */
     .search-page .products-list .item {
         width: 100%;
@@ -2213,6 +2212,23 @@
 
     /* скрывает элементы в мобильной версии */
     /* END style */
+    .header__basket {
+        background: transparent;
+        font-size: 0;
+    }
 
+    .header__basket-ico {
+        margin-right: 0;
+    }
 
+    .header__basket .wraper_bck {
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .header__basket .header__basket-value {
+        color: #fff;
+        right: -4px;
+        top: -6px;
+    }
 }
