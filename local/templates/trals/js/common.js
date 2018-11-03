@@ -229,6 +229,7 @@ if(document.documentElement.clientWidth < 1200) {
 
 // Обрезаем текст каталога
 function catalogPrew() {
+    /*
   var elem, size, text;
   elem = document.getElementsByClassName('catalog-prew');
   text = elem.innerHTML;
@@ -239,9 +240,23 @@ function catalogPrew() {
     }
     elem[i].innerHTML = text + '...';
   }
+  */
 }
+
+    function cropText(item, size) {
+
+        item.each(function () {
+            var newsText = $(this).text();
+            if(newsText.length > size){
+                $(this).text(newsText.slice(0, size) + '...');
+            }
+        });
+    }
+
+
 if(document.documentElement.clientWidth <= 480) {
-	catalogPrew();
+	//catalogPrew();
+    cropText($('.catalog-prew'), 250);
 }
 
 
